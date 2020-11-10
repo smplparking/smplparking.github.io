@@ -20,19 +20,29 @@
         <p style="text-align: center"><font face = "Comic Sans MS" size = "5"><b><u>University Parking Garages</b></u></font></p>
     
         <div>
-            <br><input type="submit" value="ASEC Parking Garage" />
-            <br><br><input type="submit" value="Administration Parking Garage" />
-            <br><br><input type="submit" value="Church St. Parking Garage" />
+            <br><input type="submit" value="ASEC Parking Garage" onclick="window.open('ASECresponse.jsp','_blank');return false;" />
+            <br><br><input type="submit" value="Administration Parking Garage" onclick="window.open('AdminResponse.jsp','_blank');return false;" />
+            <br><br><input type="submit" value="Church St. Parking Garage" onclick="ChurchPGmsg()" />
+            <br><br><img align="center" src="Roo.jpg" alt="Roo"/>
         </div>
     
-    <br><br><br>
+        <br><br><br>
     
-    <p><font size = "5">Design Members are as follows: </font><br>
-        &nbsp;&nbsp;&nbsp;&nbsp; Aaron Tobias: Computer Engineer, Project Lead <br>
-        &nbsp;&nbsp;&nbsp;&nbsp; Lucas Wilch: Electrical Engineer, Hardware Lead <br>
-        &nbsp;&nbsp;&nbsp;&nbsp; Trevor Leggett: Electrical Engineer, Archivist <br>
-        &nbsp;&nbsp;&nbsp;&nbsp; Joshua Newman: Computer Engineer, Software Lead <br>
-    </p>
+        <p><font size = "5">Design Members are as follows: </font><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; Aaron Tobias: Computer Engineer, Project Lead <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; Lucas Wilch: Electrical Engineer, Hardware Lead <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; Trevor Leggett: Electrical Engineer, Archivist <br>
+            &nbsp;&nbsp;&nbsp;&nbsp; Joshua Newman: Computer Engineer, Software Lead <br>
+        </p>
     </body> 
+    
+    <script>
+        function ChurchPGmsg()
+        {
+            alert("Electrical Engineers Suck");
+        }
+    </script>
+
+    
 </html>
 
