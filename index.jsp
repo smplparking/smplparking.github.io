@@ -22,7 +22,7 @@
         <div>
             <br><input type="submit" value="ASEC Parking Garage" onclick="window.open('ASECresponse.jsp','_blank');return false;" />
             <br><br><input type="submit" value="Administration Parking Garage" onclick="window.open('AdminResponse.jsp','_blank');return false;" />
-            <br><br><input type="submit" value="Church St. Parking Garage" onclick="ChurchPGmsg()" />
+            <br><br><input type="submit" value="Church St. Parking Garage" onclick="window.open('ChurchResponse.jsp','_blank');return false;" />
             <br><br><img align="center" src="Roo.jpg" alt="Roo"/>
         </div>
     
