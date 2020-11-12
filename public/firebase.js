@@ -1,15 +1,15 @@
 // Import stylesheets
-import "./style.css";
+// import "./style.css";
 
-// Firebase App (the core Firebase SDK) is always required
-// and must be listed first
-import * as firebase from "firebase/app";
+// // Firebase App (the core Firebase SDK) is always required
+// // and must be listed first
+// import * as firebase from "firebase/app";
 
-// Add the Firebase products that you want to use
-import "firebase/auth";
-import "firebase/firestore";
+// // Add the Firebase products that you want to use
+// import "firebase/auth";
+// import "firebase/firestore";
 
-import * as firebaseui from "firebaseui";
+// import * as firebaseui from "firebaseui";
 
 // Document elements
 const startRsvpButton = document.getElementById("startRsvp");
@@ -26,6 +26,7 @@ var rsvpListener = null;
 var guestbookListener = null;
 
 async function main() {
+    //<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js" />;
     // Add Firebase project configuration object here
     const firebaseConfig = {
         apiKey: "AIzaSyCNtOf36nW9Q-u0f-UWXzJV0zgrGja_Xvo",
@@ -97,7 +98,6 @@ async function main() {
         // Return false to avoid redirect
         return false;
     });
-    var database = firebase.database();
     // Create query for messages
     firebase
         .firestore()
