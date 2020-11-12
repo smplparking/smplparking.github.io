@@ -15,12 +15,44 @@
     div {
         text-align: center;
     }
+
+    .button {
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #008cba;
+    }
+
+    .button1:hover {
+        background-color: #008cba;
+        color: white;
+    }
 </style>
 
 <body>
+    <div id="menu"></div>
+    <button style="float: right;" class="button button1"
+        onclick="window.open('vehicles.htm','_self');return false;">Register Your Vehicle</button>
+    <br>
     <img src="./images/UofA.jpg" alt="UofA" />
     <h1>
-        <font face="Comic Sans MS"><b>Smart Parking Application</b>
+        <!-- I like this Header.. -Josh -->
+        <!-- Thats fine but can we not have it link to an outside site :thinking:  -->
+        <img src="https://images.cooltext.com/5480529.png" width="985" height="85"
+            alt="Smart Parking Application" /><br />
+        <!-- <font face="Comic Sans MS"><b>Smart Parking Application</b> -->
     </h1>
 
     <p style="text-align: center">
@@ -28,12 +60,12 @@
     </p>
 
     <div>
-        <br><input type="submit" value="ASEC Parking Garage"
-            onclick="window.open('ASECresponse.htm','_self');return false;" />
+        <br><input type="submit" value="Shrank Parking Garage"
+            onclick="window.open('Schrank.htm','_self');return false;" />
         <br><br><input type="submit" value="Administration Parking Garage"
-            onclick="window.open('AdminResponse.htm','_self');return false;" />
+            onclick="window.open('Admin.htm','_self');return false;" />
         <br><br><input type="submit" value="Church St. Parking Garage"
-            onclick="window.open('ChurchResponse.htm','_self');return false;" />
+            onclick="window.open('Church.htm','_self');return false;" />
         <br><br><input type="submit" value="Shitty RSVP" onclick="window.open('firebase.htm','_self');return false;" />
         <br><br><img align="center" src="./images/Roo.jpg" alt="Roo" />
     </div>
@@ -46,12 +78,21 @@
         &nbsp;&nbsp;&nbsp;&nbsp; Lucas Wilch: Electrical Engineer, Hardware Lead <br>
         &nbsp;&nbsp;&nbsp;&nbsp; Trevor Leggett: Electrical Engineer, Archivist <br>
         &nbsp;&nbsp;&nbsp;&nbsp; Joshua Newman: Computer Engineer, Software Lead <br>
+        &nbsp;&nbsp;&nbsp;&nbsp; Igor Tsukerman: Faculty Advisor <br>
     </p>
+
+    <p style="text-align:center; text-decoration:overline dotted red"> Stay In School Kids, Don't Do Drugs
+    </p>
+    <button style="float: right;" class="button button1" onclick="DataBaseMsg()">Car ++</button>
+    <button style="float: right;" class="button button1" onclick="DataBaseMsg()">Car --</button>
+    <!-- <img src="./images/French.jpg" alt="French" /> -->
+
+
 </body>
 
 <script>
-    function ChurchPGmsg() {
-        alert("Electrical Engineers Suck");
+    function DataBaseMsg() {
+        alert("Still Working On Database");
     }
 </script>
 

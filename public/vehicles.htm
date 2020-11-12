@@ -1,0 +1,74 @@
+<!-- html page for vehicle sign up, text boxes to add info-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>VehicleRegistration</title>
+</head>
+
+<Style>
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        font-size: 50%;
+    }
+</Style>
+
+<body>
+    <h1>
+        <font face="Comic Sans MS" size="10"><b><u>
+                    Vehicle Registration Page
+            </b></u><br><br>
+        </font>
+    </h1>
+
+    <p>
+        <font size="3">
+            <table style="width:100%">
+                <tr>
+                    <td>First Name:</td>
+                    <td><input type="text" id="firstName"></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><input type="text" id="lastName"></td>
+                </tr>
+                <tr>
+                    <td>Student ID:</td>
+                    <td><input type="text" id="studentID"></td>
+                </tr>
+                <tr>
+                    <td>License Plate Number:</td>
+                    <td><input type="text" id="licensePlate"></td>
+                </tr>
+                <tr>
+                    <td>TagID:</td>
+                    <td><input type="text" id="tagID"></td>
+                </tr>
+            </table>
+        </font>
+        <button onclick="writeUserData()">Submit</button>
+    </p>
+</body>
+
+<script>
+    function writeUserData() {
+        var firstName = document.getElementById('firstName').value;
+        var lastName = document.getElementById('lastName').value;
+        var studentID = document.getElementById('studentID').value;
+        var licensePlate = document.getElementById('licensePlate').value;
+        var tagID = document.getElementById('tagID').value;
+        //firebase.database().ref('users/' + userFirstName).set(firstName)
+        //firebase.database().ref('users/' + userLastName).set(lastName)
+        //firebase.database().ref('users/' + userStudentID).set(studentID)
+        //firebase.database().ref('users/' + userLicensePlate).set(licensePlate)
+        //firebase.database().ref('users/' + userTagID).set(tagID)
+        alert(firstName + " " + lastName + " " + studentID + " " + licensePlate + " " + tagID);
+    }
+</script>
+
+</html>
