@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>VehicleRegistration</title>
+    <title>Vehicle Registration</title>
 </head>
 
 <Style>
@@ -19,6 +19,7 @@
 </Style>
 
 <body>
+
     <h1>
         <font face="Comic Sans MS" size="10"><b><u>
                     Vehicle Registration Page
@@ -26,9 +27,10 @@
         </font>
     </h1>
 
-    <p>
+    <div style="transform: translateX(33%);">
         <font size="3">
-            <table style="width:100%">
+            <!-- <table style="width:25%;margin:auto;"> -->
+            <table>
                 <tr>
                     <td>First Name:</td>
                     <td><input type="text" id="firstName"></td>
@@ -42,33 +44,77 @@
                     <td><input type="text" id="studentID"></td>
                 </tr>
                 <tr>
-                    <td>License Plate Number:</td>
+                    <td>License Plate:</td>
                     <td><input type="text" id="licensePlate"></td>
                 </tr>
                 <tr>
                     <td>TagID:</td>
-                    <td><input type="text" id="tagID"></td>
+                    <td><select id="TagID">
+                            <option value=1>Faculty</option>
+                            <option value=2>Service</option>
+                            <option value=3>Resident</option>
+                            <option value=4>Commuter</option>
+                        </select>
+                    </td>
                 </tr>
             </table>
         </font>
-        <button onclick="writeUserData()">Submit</button>
-    </p>
+        </p>
+        <button id="registerCar">Submit</button>
+        <!-- <input type="button" id="register car" onclick=writeUserData();> -->
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth.js"></script>
+        <script src="./vehicles.js" defer></script>
 </body>
 
-<script>
+<!-- <script>
     function writeUserData() {
         var firstName = document.getElementById('firstName').value;
         var lastName = document.getElementById('lastName').value;
         var studentID = document.getElementById('studentID').value;
         var licensePlate = document.getElementById('licensePlate').value;
         var tagID = document.getElementById('tagID').value;
-        //firebase.database().ref('users/' + userFirstName).set(firstName)
+        //firebaseRef.child("user").set(firstName);
         //firebase.database().ref('users/' + userLastName).set(lastName)
         //firebase.database().ref('users/' + userStudentID).set(studentID)
         //firebase.database().ref('users/' + userLicensePlate).set(licensePlate)
         //firebase.database().ref('users/' + userTagID).set(tagID)
         alert(firstName + " " + lastName + " " + studentID + " " + licensePlate + " " + tagID);
-    }
-</script>
+    }-->
+
+<!-- <script>
+    function writeUserData() {
+        alert("TEST");
+        // // Write a new message to the database collection "Database"
+        firebase
+            .firestore()
+            .collection("Database")
+            .add({
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                licensePlate: document.getElementById('licensePlate').value,
+                lotID: LOTID.NOTPARKED,
+                studentID: document.getElementById('studentID').value,
+                tagID: document.getElementById('TagID').value,
+                validity: true,
+            });
+        // clear message input field
+        firstNameTxt.value = "";
+        lastNameTxt.value = " ";
+        licensePlateTxt.value = " ";
+        studentIDTxt.value = " ";
+    };
+
+</script> -->
 
 </html>

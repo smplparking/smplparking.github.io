@@ -8,7 +8,6 @@
 // // Add the Firebase products that you want to use
 // import "firebase/auth";
 // import "firebase/firestore";
-
 // import * as firebaseui from "firebaseui";
 
 // Document elements

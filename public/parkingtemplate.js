@@ -33,6 +33,8 @@ async function main() {
         messagingSenderId: "433378267664",
         appId: "1:433378267664:web:a9ab7ead17145eab543095"
     };
+
+
     firebase.initializeApp(firebaseConfig);
 
     // FirebaseUI config
