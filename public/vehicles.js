@@ -87,6 +87,7 @@ async function main() {
     form.addEventListener("submit", e => {
         // Prevent the default form redirect
         e.preventDefault();
+        alert("test");
         // Write a new message to the database collection "Database"
         firebase
             .firestore()
