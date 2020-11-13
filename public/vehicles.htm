@@ -31,34 +31,28 @@
         <font size="3">
             <!-- <table style="width:25%;margin:auto;"> -->\
             <form id="enterData">
-                <table>
-                    <tr>
-                        <td>First Name:</td>
-                        <td><input type="text" id="firstName"></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name:</td>
-                        <td><input type="text" id="lastName"></td>
-                    </tr>
-                    <tr>
-                        <td>Student ID:</td>
-                        <td><input type="text" id="studentID"></td>
-                    </tr>
-                    <tr>
-                        <td>License Plate:</td>
-                        <td><input type="text" id="licensePlate"></td>
-                    </tr>
-                    <tr>
-                        <td>TagID:</td>
-                        <td><select id="TagID">
-                                <option value=1>Faculty</option>
-                                <option value=2>Service</option>
-                                <option value=3>Resident</option>
-                                <option value=4>Commuter</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
+                <label for="firstName">First name:</label>
+                <input type="text" id="firstName" name="firstName"><br>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName"><br>
+
+
+                <label for="studentID">Student ID #:</label>
+                <input type="text" id="studentID" name="studentID"><br>
+
+
+                <label for="licensePlate">License Plate:</label>
+                <input type="text" id="licensePlate" name="licensePlate"><br>
+
+
+                <label for="TagID">Tag Class:</label>
+                <select id="TagID" name="TagID">
+                    <option value=1>Faculty</option>
+                    <option value=2>Service</option>
+                    <option value=3>Resident</option>
+                    <option value=4>Commuter</option>
+                </select><br>
                 <button type="submit" id="registerCar">Submit</button>
             </form>
         </font>

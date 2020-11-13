@@ -7,9 +7,9 @@
 // 
 const LOTID = {
     NOTPARKED: 0,
-    SCHRANK: 1,
-    CHURCHST: 2,
-    ADMIN: 3,
+    SCHRANK: "Schrank",
+    CHURCH: "Church",
+    ADMIN: "Admin",
 };
 
 //enum for TAGCLASS to easily distinguish
@@ -22,7 +22,6 @@ const TAGCLASS = {
 };
 
 async function main() {
-    //<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js" />;
     // Add Firebase project configuration object here
     const firebaseConfig = {
         apiKey: "AIzaSyBdKVHBk0nhbw1Day57hFO5omi_xfWxduc",
@@ -34,85 +33,28 @@ async function main() {
         appId: "1:373649584144:web:b8cff278ae8decee82da95",
         measurementId: "G-Q7SG8HK1KT"
     };
-
-    firebase.initializeApp(firebaseConfig);
-
-    // FirebaseUI config
-    const uiConfig = {
-        credentialHelper: firebaseui.auth.CredentialHelper.NONE,
-        signInOptions: [
-            // Email / Password Provider.
-            firebase.auth.EmailAuthProvider.PROVIDER_ID
-        ],
-        callbacks: {
-            signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                // Handle sign-in.
-                // Return false to avoid redirect.
-                return false;
-            }
-        }
-    };
-
-    const ui = new firebaseui.auth.AuthUI(firebase.auth());
-    // Listen to RSVP button clicks
-    // Called when the user clicks the RSVP button
-    startRsvpButton.addEventListener("click", () => {
-        if (firebase.auth().currentUser) {
-            // User is signed in; allows user to sign out
-            firebase.auth().signOut();
-        } else {
-            // No user is signed in; allows user to sign in
-            ui.start("#firebaseui-auth-container", uiConfig);
-        }
-    });
-    // Listen to the current Auth state
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            startRsvpButton.textContent = "LOGOUT";
-            // Show guestbook to logged-in users
-            guestbookContainer.style.display = "block";
-        } else {
-            startRsvpButton.textContent = "RSVP";
-            // Hide guestbook for non-logged-in users
-            guestbookContainer.style.display = "none";
-        }
-    });
-    // Listen to the form submission
-    form.addEventListener("submit", e => {
-        // Prevent the default form redirect
-        e.preventDefault();
-        // Write a new message to the database collection "guestbook"
-        firebase
-            .firestore()
-            .collection("guestbook")
-            .add({
-                text: input.value,
-                timestamp: Date.now(),
-                name: firebase.auth().currentUser.displayName,
-                userId: firebase.auth().currentUser.uid
-            });
-        // clear message input field
-        input.value = "";
-        // Return false to avoid redirect
-        return false;
-    });
-    // Create query for messages
-    firebase
-        .firestore()
-        .collection("guestbook")
-        .orderBy("timestamp", "desc")
-        .onSnapshot(snaps => {
-            // Reset page
-            guestbook.innerHTML = "";
-            // Loop through documents in database
-            snaps.forEach(doc => {
-                // Create an HTML entry for each document and add it to the chat
-                const entry = document.createElement("p");
-                entry.textContent = doc.data().name + ": " + doc.data().text;
-                guestbook.appendChild(entry);
-            });
-        });
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+    }
+    // // Create query for messages
+    // firebase
+    //     .firestore()
+    //     .collection("Database")
+    //     .orderBy("timestamp", "desc")
+    //     .onSnapshot(snaps => {
+    //         // Reset page
+    //         guestbook.innerHTML = "";
+    //         // Loop through documents in database
+    //         snaps.forEach(doc => {
+    //             // Create an HTML entry for each document and add it to the chat
+    //             const entry = document.createElement("p");
+    //             entry.textContent = doc.data().name + ": " + doc.data().text;
+    //             guestbook.appendChild(entry);
+    //         });
+    //     });
 }
+main();
+getParkedCars("ASEC")
 // Initialize and add the map
 function initMap() {
     // The location of Uluru
@@ -128,4 +70,12 @@ function initMap() {
         map: map,
     });
 }
-main();
+function getParkedCars(garage) {
+    firebase
+        .firestore()
+        .collection('Garages')
+        .doc(garage)
+        .onSnapshot(function (doc) {
+            console.log("Current data: ", doc.data());
+        });
+}
