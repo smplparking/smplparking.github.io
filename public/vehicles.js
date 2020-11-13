@@ -101,8 +101,12 @@ async function main() {
                 validity: true,
             });
         // clear message input field
-        input.value = "";
-        // Return false to avoid redirect
+        form.value = "";
+        firstNameTxt.value = "";
+        lastNameTxt.value = "";
+        studentIDTxt.value = "";
+        licensePlateTxt.value = "";
+        TagIDTxt.value = "";
         return false;
     });
     // // Create query for messages
