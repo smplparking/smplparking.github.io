@@ -61,6 +61,11 @@ async function main() {
                 tagID: TagID.value,
                 validity: true,
             });
+        firebase
+            .firestore()
+            .collection("Garages")
+            .doc("Total")
+            .update("cars", firebase.firestore.FieldValue.increment(1));
         // clear message input field
         form.value = "";
         firstNameTxt.value = "";

@@ -3,44 +3,35 @@
 <html>
 
 <head>
-    <title>Add Map</title>
+    <title id="ASEC">ASEC</title>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWK-vg0fHGRV3J-K2T8cCKMf7FIjXGnAk
     &callback=initMap&libraries=&v=weekly" defer></script>
-    <style type="text/css">
-        /* Set the size of the div element that contains the map */
-        #map {
-            height: 400px;
-            /* The height is 400 pixels */
-            width: 400px;
-            /* The width is the width of the web page */
-        }
-    </style>
-    <script>
-        // Initialize and add the map
-        function initMap() {
-            // The location of Uluru
-            const schrank = { lat: 41.0747653, lng: -81.515844 };
-            // The map, centered at Uluru
-            const map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 16,
-                center: schrank,
-            });
-            // The marker, positioned at Uluru
-            const marker = new google.maps.Marker({
-                position: schrank,
-                map: map,
-                title: "Schrank Parking",
-                animation: google.maps.Animation.BOUNCE,
-            });
+    <link rel="stylesheet" href="css/style.css">
 
-        }
-    </script>
 </head>
 
 <body>
-    <h3>My Google Maps Demo</h3>
+    <h3>Parking Template</h3>
+    <div>
+        Currently <b id="currentCars">#</b> cars out of <b id="totalCars">#</b> spots.
+    </div>
     <!--The div element for the map -->
-    <div id="map"></div>
+    <div style="float: right;" id="map"></div>
+
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth.js"></script>
+    <script src="./js/parkingtemplate.js"></script>
+    <button style="float: right;" class="button button1" onclick="testAddCar()">Car ++</button>
+    <button style="float: right;" class="button button1" onclick="testDeleteCar()">Car --</button>
 </body>
 
 </html>

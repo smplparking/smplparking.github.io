@@ -5,6 +5,13 @@
 //enum for LOTID, to easily distingusih
 // e.g. LOTID.NOTPARKED (==0)
 // 
+const garage = document.getElementsByTagName("title")[0].id;
+console.log(garage);
+
+const GARAGECOORDS = {
+    ASEC: [123, 123],
+}
+
 const LOTID = {
     NOTPARKED: 0,
     SCHRANK: "Schrank",
@@ -36,6 +43,15 @@ async function main() {
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
     }
+    firebase
+        .firestore()
+        .collection('Garages')
+        .doc(garage)
+        .onSnapshot(function(doc) {
+            console.log("Current data: ", doc.data());
+            currentCars.innerHTML = doc.data().currentCars;
+            totalCars.innerHTML = doc.data().totalCars;
+        });
     // // Create query for messages
     // firebase
     //     .firestore()
@@ -54,28 +70,45 @@ async function main() {
     //     });
 }
 main();
-getParkedCars("ASEC")
+//getParkedCars("ASEC")
 // Initialize and add the map
+
 function initMap() {
     // The location of Uluru
-    const uluru = { lat: -25.344, lng: 131.036 };
+    const schrank = { lat: 41.0747653, lng: -81.515844 };
     // The map, centered at Uluru
     const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 4,
-        center: uluru,
+        zoom: 16,
+        center: schrank,
     });
     // The marker, positioned at Uluru
     const marker = new google.maps.Marker({
-        position: uluru,
+        position: schrank,
         map: map,
+        title: "Schrank Parking",
+        animation: google.maps.Animation.BOUNCE,
     });
+
 }
-function getParkedCars(garage) {
+
+function testAddCar() {
+    const increment = firebase.firestore.FieldValue.increment(1);
     firebase
         .firestore()
         .collection('Garages')
         .doc(garage)
-        .onSnapshot(function (doc) {
-            console.log("Current data: ", doc.data());
-        });
+        .update({
+            currentCars: increment
+        })
+}
+
+function testDeleteCar() {
+    const decrement = firebase.firestore.FieldValue.increment(-1);
+    firebase
+        .firestore()
+        .collection('Garages')
+        .doc(garage)
+        .update({
+            currentCars: decrement
+        })
 }
