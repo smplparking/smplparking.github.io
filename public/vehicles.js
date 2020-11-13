@@ -3,7 +3,7 @@
 //add vehicle to database through fields
 //store vehicle as LOTID.NOTPARKED
 //for demo, assume COMMUTER
-const form = document.getElementById("registerCar");
+const form = document.getElementById("enterData");
 const firstNameTxt = document.getElementById("firstName");
 const lastNameTxt = document.getElementById("lastName");
 const studentIDTxt = document.getElementById("studentID");
