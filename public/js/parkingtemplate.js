@@ -25,15 +25,15 @@ async function main() {
     //<script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js" />;
     // Add Firebase project configuration object here
     const firebaseConfig = {
-        apiKey: "AIzaSyCNtOf36nW9Q-u0f-UWXzJV0zgrGja_Xvo",
-        authDomain: "sample-faafb.firebaseapp.com",
-        databaseURL: "https://sample-faafb.firebaseio.com",
-        projectId: "sample-faafb",
-        storageBucket: "sample-faafb.appspot.com",
-        messagingSenderId: "433378267664",
-        appId: "1:433378267664:web:a9ab7ead17145eab543095"
+        apiKey: "AIzaSyBdKVHBk0nhbw1Day57hFO5omi_xfWxduc",
+        authDomain: "smplparking.firebaseapp.com",
+        databaseURL: "https://smplparking.firebaseio.com",
+        projectId: "smplparking",
+        storageBucket: "smplparking.appspot.com",
+        messagingSenderId: "373649584144",
+        appId: "1:373649584144:web:b8cff278ae8decee82da95",
+        measurementId: "G-Q7SG8HK1KT"
     };
-
 
     firebase.initializeApp(firebaseConfig);
 
