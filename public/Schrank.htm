@@ -2,12 +2,35 @@
 <html>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>SCHRANK Parking Garage</title>
+    <title id="Schrank">Schrank Parking</title>
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
-    <h1>SCHRANK Parking Garage Real-Time Update</h1>
+    <h1>Lot 39: Exchange Street Parking Garage Real-Time Update</h1>
+    <div>
+        Currently <b id="currentCars">#</b> cars out of <b id="totalCars">#</b> spots.
+    </div>
+    <!--The div element for the map -->
+    <div style="float: right;" id="map"></div>
+    <img style="float:right;" src="https://maps.googleapis.com/maps/api/staticmap?size=400x400
+    &markers=color:red|label:!|Lot+39,Akron,Ohio
+    &key=AIzaSyAWK-vg0fHGRV3J-K2T8cCKMf7FIjXGnAk"></iframe>
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth.js"></script>
+    <script src="./js/parkingtemplate.js"></script>
+    <button style="float: right;" class="button button1" onclick="testAddCar()">Car ++</button>
+    <button style="float: right;" class="button button1" onclick="testDeleteCar()">Car --</button>
 </body>
 
 </html>

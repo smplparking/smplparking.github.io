@@ -47,7 +47,7 @@ async function main() {
     form.addEventListener("submit", e => {
         // Prevent the default form redirect
         e.preventDefault();
-        alert("test");
+        alert("Thank You For Registering Your Vehicle!");
         // Write a new message to the database collection "Database"
         firebase
             .firestore()

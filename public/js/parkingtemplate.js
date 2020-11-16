@@ -47,7 +47,7 @@ async function main() {
         .firestore()
         .collection('Garages')
         .doc(garage)
-        .onSnapshot(function(doc) {
+        .onSnapshot(function (doc) {
             console.log("Current data: ", doc.data());
             currentCars.innerHTML = doc.data().currentCars;
             totalCars.innerHTML = doc.data().totalCars;
@@ -73,23 +73,6 @@ main();
 //getParkedCars("ASEC")
 // Initialize and add the map
 
-function initMap() {
-    // The location of Uluru
-    const schrank = { lat: 41.0747653, lng: -81.515844 };
-    // The map, centered at Uluru
-    const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 16,
-        center: schrank,
-    });
-    // The marker, positioned at Uluru
-    const marker = new google.maps.Marker({
-        position: schrank,
-        map: map,
-        title: "Schrank Parking",
-        animation: google.maps.Animation.BOUNCE,
-    });
-
-}
 
 function testAddCar() {
     const increment = firebase.firestore.FieldValue.increment(1);

@@ -3,10 +3,32 @@
 <html>
 
 <head>
-    <title id="ASEC">ASEC</title>
+    <title id="GARAGENAME">Garage Name Parking</title>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWK-vg0fHGRV3J-K2T8cCKMf7FIjXGnAk
     &callback=initMap&libraries=&v=weekly" defer></script>
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        function initMap() {
+            // The location of Uluru
+            const schrank = {
+                lat: 41.074724,
+                lng: -81.515058
+            };
+            // The map, centered at Uluru
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 16,
+                center: schrank,
+            });
+            // The marker, positioned at Uluru
+            const marker = new google.maps.Marker({
+                position: schrank,
+                map: map,
+                title: "Schrank Parking",
+                animation: google.maps.Animation.BOUNCE,
+            });
+
+        }
+    </script>
 
 </head>
 
