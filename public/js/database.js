@@ -3,6 +3,7 @@
 //add vehicle to database through fields
 //store vehicle as LOTID.NOTPARKED
 //for demo, assume COMMUTER
+const form1= document.getElementById("inputLogIn");
 const form = document.getElementById("enterData");
 const firstNameTxt = document.getElementById("firstName");
 const lastNameTxt = document.getElementById("lastName");
@@ -54,47 +55,8 @@ async function main() {
     form.addEventListener("submit", e => {
         // Prevent the default form redirect
         e.preventDefault();
-        // alert("Thank You For Registering Your Vehicle!");
-        //Create a User Email/Password Combination
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(createEmail.value, createPassword.value)
-            .then((userCredential) =>{
-                var user = userCredential.user
-                alert("Thank you for creating an Account, You're now logged in!!")
-                window.open('mainPage.htm','_self');return false;
-            })
-            .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-            });
+        alert("Thank You For Registering Your Vehicle!");
 
-        //Log Into Application
-        firebase
-            .auth()
-            .signInWithEmailAndPassword(Email.value, Password.value)
-            .then((userCredential) => {
-                var user = userCredential.user
-                alert(Email.value)
-            })
-            .catch((error) => {
-                var errorCode = error.code;
-                var errorMessage = error.message;
-            });
-
-        //Sign Out
-        // if(signOut==true){
-        //     firebase
-        //     .auth()
-        //     .signOut()
-        //     .then(() => {
-        //         alert("You Have successfully Signed Out")
-        //     })
-        //     .catch((error) => {
-        //         // An error Happened
-        //     });
-        // }
-        // Write a new message to the database collection "Database"
         firebase
             .firestore()
             .collection("Database")
@@ -119,12 +81,11 @@ async function main() {
         studentIDTxt.value = "";
         licensePlateTxt.value = "";
         return false;
+    });
 
 
-  });
 
-  
-
+        
 
 
 
@@ -147,5 +108,18 @@ async function main() {
     //             guestbook.appendChild(entry);
     //         });
     //     });
+            //Sign Out
+        // if(signOut==true){
+        //     firebase
+        //     .auth()
+        //     .signOut()
+        //     .then(() => {
+        //         alert("You Have successfully Signed Out")
+        //     })
+        //     .catch((error) => {
+        //         // An error Happened
+        //     });
+        // }
+        // Write a new message to the database collection "Database"
 }
 main();
