@@ -11,8 +11,9 @@ const licensePlateTxt = document.getElementById("licensePlate");
 const TagIDTxt = document.getElementById("TagID");
 const createEmail = document.getElementById("createEmail");
 const createPassword = document.getElementById("createPassword");
-// const Email = document.getElementById("Email")
-// const Password = document.getElementById("Password")
+const Email = document.getElementById("Email")
+const Password = document.getElementById("Password")
+const signOut = false;
 
 
 
@@ -54,7 +55,6 @@ async function main() {
         // Prevent the default form redirect
         e.preventDefault();
         // alert("Thank You For Registering Your Vehicle!");
-
         //Create a User Email/Password Combination
         firebase
             .auth()
@@ -62,13 +62,38 @@ async function main() {
             .then((userCredential) =>{
                 var user = userCredential.user
                 alert("Thank you for creating an Account, You're now logged in!!")
-                //window.open("window.open('mainPage.htm','_self');return false;")
+                window.open('mainPage.htm','_self');return false;
             })
             .catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
             });
 
+        //Log Into Application
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(Email.value, Password.value)
+            .then((userCredential) => {
+                var user = userCredential.user
+                alert(Email.value)
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+            });
+
+        //Sign Out
+        // if(signOut==true){
+        //     firebase
+        //     .auth()
+        //     .signOut()
+        //     .then(() => {
+        //         alert("You Have successfully Signed Out")
+        //     })
+        //     .catch((error) => {
+        //         // An error Happened
+        //     });
+        // }
         // Write a new message to the database collection "Database"
         firebase
             .firestore()
@@ -97,6 +122,10 @@ async function main() {
 
 
   });
+
+  
+
+
 
 
 
