@@ -13,7 +13,7 @@ const createEmail = document.getElementById("createEmail");
 const createPassword = document.getElementById("createPassword");
 const Email = document.getElementById("Email")
 const Password = document.getElementById("Password")
-const signOut = false;
+// const signOut = false;
 
 
 
