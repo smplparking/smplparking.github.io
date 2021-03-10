@@ -1,0 +1,59 @@
+<!-- html page for vehicle sign up, text boxes to add info-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Smart Parking Account Registration</title>
+</head>
+
+<Style>
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        font-size: 50%;
+    }
+</Style>
+
+<body>
+
+    <h1>
+        <font face="Comic Sans MS" size="10"><b><u>
+                    Smart Parking Account Registration
+            </b></u><br><br>
+        </font>
+    </h1>
+
+    <div style="transform: translateX(33%);">
+        <font size="3">
+            <!-- <table style="width:25%;margin:auto;"> -->
+            <form id="enterData">
+                <label for="Email">Email:</label>
+                <input type="text" id="createEmail" name="Email"><br>
+
+                <label for="Password">Password:</label>
+                <input type="text" id="createPassword" name="Password"><br>
+
+                <button type="submit" id="createAccount">Create Account</button>
+            </form>
+        </font>
+        </p>
+
+        <!-- <input type="button" id="register car" onclick=writeUserData();> -->
+        <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+        <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+
+        <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.7.1/firebase-ui-auth.js"></script>
+        <script src="./js/vehicles.js" defer></script>
+</body>

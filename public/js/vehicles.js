@@ -9,6 +9,10 @@ const lastNameTxt = document.getElementById("lastName");
 const studentIDTxt = document.getElementById("studentID");
 const licensePlateTxt = document.getElementById("licensePlate");
 const TagIDTxt = document.getElementById("TagID");
+const createEmail = document.getElementById("createEmail");
+const createPassword = document.getElementById("createPassword");
+// const Email = document.getElementById("Email")
+// const Password = document.getElementById("Password")
 
 
 
@@ -27,6 +31,8 @@ const TAGCLASS = {
     SERVICE: 3,
     FACULTY: 4,
 };
+
+
 
 async function main() {
     // Add Firebase project configuration object here
@@ -47,7 +53,22 @@ async function main() {
     form.addEventListener("submit", e => {
         // Prevent the default form redirect
         e.preventDefault();
-        alert("Thank You For Registering Your Vehicle!");
+        // alert("Thank You For Registering Your Vehicle!");
+
+        //Create a User Email/Password Combination
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(createEmail.value, createPassword.value)
+            .then((userCredential) =>{
+                var user = userCredential.user
+                alert("Thank you for creating an Account, You're now logged in!!")
+                //window.open("window.open('mainPage.htm','_self');return false;")
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+            });
+
         // Write a new message to the database collection "Database"
         firebase
             .firestore()
@@ -74,7 +95,13 @@ async function main() {
         licensePlateTxt.value = "";
         return false;
 
-    });
+
+  });
+
+
+
+
+
     // // Create query for messages
     // firebase
     //     .firestore()
