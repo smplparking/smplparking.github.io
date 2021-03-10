@@ -24,7 +24,8 @@ async function main() {
         .signInWithEmailAndPassword(Email.value, Password.value)
         .then((userCredential) => {
             var user = userCredential.user
-            alert(Email.value)
+            alert("Thank you for Logging in, Enjoy!!")
+            window.open('mainPage.htm','_self');return false;
         })
         .catch((error) => {
             var errorCode = error.code;
