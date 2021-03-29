@@ -55,8 +55,9 @@
     <div id="menu"></div>
     <button style="float: right;" class="button button1"
         onclick="window.open('vehicles.htm','_self');return false;">Register Your Vehicle</button>
-    <button style="float: right;" class=" button button1"
-        onclick="signOut()">Sign Out</button>
+    <form id = "signOut">
+    <button type = "submit" id= "signOut" style="float: right;" class=" button button1" onclick="window.open('signOut.htm','_self');return false;">Sign Out</button>
+    </form>
     <br><br><br><br>
 
     <h1>
@@ -102,6 +103,7 @@
     <!-- <button style="float: right;" class="button button1" onclick="DataBaseMsg()">Car ++</button>
     <button style="float: right;" class="button button1" onclick="DataBaseMsg()">Car --</button> -->
     <!-- <img src="./images/French.jpg" alt="French" /> -->
+    <script src="./js/signOut.js" defer></script>
 
 
 </body>
