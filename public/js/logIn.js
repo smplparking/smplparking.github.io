@@ -30,6 +30,7 @@ async function main() {
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
+            alert("Incorrect Email or Password")
         });
 
         return false;

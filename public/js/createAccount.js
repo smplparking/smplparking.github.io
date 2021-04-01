@@ -26,14 +26,18 @@ async function main() {
             .createUserWithEmailAndPassword(createEmail.value, createPassword.value)
             .then((userCredential) =>{
                 var user = userCredential.user
-                alert("Thank you for creating an Account, You're now logged in!!")
-                window.open('mainPage.htm','_self');return false;
-            })
+                alert("Thank you for creating an Account, You're now logged in!!");
+                user
+                    .sendEmailVerification()
+                    .then(function() {
+                    // Email sent.
+                    })
             .catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
             });
-            return false;
+            window.open('mainPage.htm','_self');return false;
         })
-    }
+      }
+    )}
     main();
